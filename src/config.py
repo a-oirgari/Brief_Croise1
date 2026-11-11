@@ -20,7 +20,6 @@ NUMERIC_COLS = [
 ]
 ENGINEERED_COLS = ["Sleep_Deficit", "Non_Social_Screen_Time", "Stress_Support_Gap"]
 
-
 ORDINAL_COLS = {
     "Physical_Activity": ["Low", "Moderate", "High"],
     "Diet_Quality": ["Poor", "Average", "Good"],
@@ -30,7 +29,6 @@ ORDINAL_COLS = {
 NOMINAL_COLS = ["Gender"]
 
 INPUT_COLUMNS = NUMERIC_COLS + list(ORDINAL_COLS) + NOMINAL_COLS
-
 
 VALID_RANGES = {
     "Age": (16, 40),
