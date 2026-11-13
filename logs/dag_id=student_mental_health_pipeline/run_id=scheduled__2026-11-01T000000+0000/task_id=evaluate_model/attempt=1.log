@@ -1,0 +1,37 @@
+[2026-11-12T19:35:04.816+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-11-12T19:35:04.853+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: student_mental_health_pipeline.evaluate_model scheduled__2026-11-01T00:00:00+00:00 [queued]>
+[2026-11-12T19:35:04.864+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: student_mental_health_pipeline.evaluate_model scheduled__2026-11-01T00:00:00+00:00 [queued]>
+[2026-11-12T19:35:04.867+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 3
+[2026-11-12T19:35:04.883+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): evaluate_model> on 2026-11-01 00:00:00+00:00
+[2026-11-12T19:35:04.892+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'student_mental_health_pipeline', 'evaluate_model', 'scheduled__2026-11-01T00:00:00+00:00', '--job-id', '9', '--raw', '--subdir', 'DAGS_FOLDER/mental_health_dag.py', '--cfg-path', '/tmp/tmpgrqpmki6']
+[2026-11-12T19:35:04.896+0000] {standard_task_runner.py:91} INFO - Job 9: Subtask evaluate_model
+[2026-11-12T19:35:04.897+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=338) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-11-12T19:35:04.898+0000] {standard_task_runner.py:63} INFO - Started process 341 to run task
+[2026-11-12T19:35:04.952+0000] {task_command.py:426} INFO - Running <TaskInstance: student_mental_health_pipeline.evaluate_model scheduled__2026-11-01T00:00:00+00:00 [running]> on host 2bfbb9f53a3f
+[2026-11-12T19:35:05.045+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='student' AIRFLOW_CTX_DAG_ID='student_mental_health_pipeline' AIRFLOW_CTX_TASK_ID='evaluate_model' AIRFLOW_CTX_EXECUTION_DATE='2026-11-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2026-11-01T00:00:00+00:00'
+[2026-11-12T19:35:05.047+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-11-12T19:35:05.062+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-11-12T19:35:05.064+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'cd "/opt/***" && python -m src.evaluate']
+[2026-11-12T19:35:05.073+0000] {subprocess.py:86} INFO - Output:
+[2026-11-12T19:35:05.149+0000] {subprocess.py:93} INFO - /home/***/.local/bin/python: No module named src.evaluate
+[2026-11-12T19:35:05.153+0000] {subprocess.py:97} INFO - Command exited with return code 1
+[2026-11-12T19:35:05.155+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-11-12T19:35:05.165+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 460, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/bash.py", line 243, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 1.
+[2026-11-12T19:35:05.170+0000] {taskinstance.py:1206} INFO - Marking task as UP_FOR_RETRY. dag_id=student_mental_health_pipeline, task_id=evaluate_model, run_id=scheduled__2026-11-01T00:00:00+00:00, execution_date=20261101T000000, start_date=20261112T193504, end_date=20261112T193505
+[2026-11-12T19:35:05.184+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 9 for task evaluate_model (Bash command failed. The command returned a non-zero exit code 1.; 341)
+[2026-11-12T19:35:05.194+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2026-11-12T19:35:05.208+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-11-12T19:35:05.211+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
