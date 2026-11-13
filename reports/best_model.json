@@ -1,0 +1,7 @@
+{
+  "model": "Logistic Regression",
+  "cv_f1_weighted": 0.7524925213050838,
+  "params": {
+    "model__C": 10
+  }
+}
